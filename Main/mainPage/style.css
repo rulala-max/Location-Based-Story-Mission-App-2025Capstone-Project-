@@ -1,0 +1,272 @@
+/* style.css (수정된 최종 코드 - 프로필 이미지 원형 맞춤) */
+/* 공통 스타일 */
+* {
+    box-sizing: border-box;
+    font-family: '맑은 고딕', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100vh; 
+    background: #ccc;
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    overflow: hidden; 
+}
+
+/* 공통 컨테이너 */
+.container_common {
+    width: 100%; 
+    max-width: 420px; /* 💡 모바일 최대 너비 제한 */
+    
+    height: 100%; 
+    
+    background: #fff2cc;
+    padding: 30px 20px; /* 좌우 20px 패딩 유지 */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* ❌ position: relative 제거 (fixed 포지션 사용 시 불필요) */
+}
+
+/* 메인 화면 */
+.container_main {
+    justify-content: center;
+    text-align: center;
+}
+
+/* 메인 화면 버튼 컨테이너 */
+.container_main .btn_box {
+    display: flex;
+    flex-direction: column; 
+    width: 100%; 
+}
+
+
+/* 로그인/회원가입, 랭킹 화면 */
+.container_auth {
+    justify-content: flex-start;
+    position: relative;
+    height: 100%; 
+    min-height: auto; 
+    margin-top: 0;
+    width: 100%; 
+    padding-bottom: 120px; 
+}
+
+/* 타이틀 */
+h1, .logo {
+    font-weight: bold;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    word-break: keep-all; 
+    max-width: fit-content; 
+    margin: 0 auto 20px auto; 
+}
+
+
+.logo {
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+/* 타이틀 색상 */
+.red { color: red; }
+.blue { color: navy; }
+
+/* 버튼 및 입력창 (공통 스타일 - 간격 10px) */
+button, input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    box-sizing: border-box;
+    border: 2px solid #d2a600; 
+}
+
+button {
+    background: #ffd966;
+    cursor: pointer;
+}
+
+input {
+    background: #fff;
+    border: 2px solid #d2a600;
+    padding-left: 10px;
+}
+
+/* 링크 박스 */
+.link_box {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.link_box a {
+    text-decoration: none;
+    color: black;
+}
+
+/* 삼각형(메인 이동 버튼) */
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 18px solid #d2a600; 
+    
+    position: absolute;
+    top: 20px; 
+    left: 20px;
+    cursor: pointer;
+}
+
+/* ========================================================== */
+/* 랭킹 페이지 스타일 */
+/* ========================================================== */
+
+/* 랭킹 헤더 스타일 */
+.rank-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+    margin: 10px 0 20px 0;
+}
+
+/* 랭킹 목록 스크롤 영역 */
+.rank-list-scroll {
+    width: 100%;
+    height: 100%; 
+    overflow-y: auto;
+    padding-right: 5px; 
+}
+
+/* 랭킹 아이템 공통 스타일 */
+.rank-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 2px solid #d2a600; 
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    height: 70px;
+}
+
+/* 순위 번호 스타일 */
+.rank-num {
+    background: #ffc107;
+    color: #333;
+    font-size: 1.4rem;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 8px;
+    margin-right: 15px;
+    flex-shrink: 0; 
+}
+
+/* 프로필 아이콘 */
+.rank-profile {
+    width: 40px;
+    height: 40px;
+    background: #eee; 
+    border-radius: 50%; /* 원형 유지 */
+    border: 1px solid #ccc;
+    margin-right: 15px;
+    overflow: hidden; /* 💡 넘치는 이미지 숨김 */
+    flex-shrink: 0;
+    
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-size: 20px; 
+}
+
+/* 💡 [추가] 프로필 이미지에 대한 스타일 */
+.rank-profile img {
+    width: 100%; /* 부모 .rank-profile의 너비에 꽉 채움 */
+    height: 100%; /* 부모 .rank-profile의 높이에 꽉 채움 */
+    object-fit: cover; /* 💡 [핵심] 비율 유지하면서 원형 영역을 채우고, 넘치는 부분은 잘라냄 */
+    border-radius: 50%; /* 이미지 자체도 원형으로 잘라냄 */
+}
+
+/* ID 및 시간 정보 */
+.rank-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+    text-align: left;
+}
+.rank-id {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}
+.rank-time {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+
+/* ========================================================== */
+/* 하단 고정 영역 (My Rank) - Fixed Position 기반 안정화 */
+/* ========================================================== */
+
+.my-rank-fixed-container {
+    position: fixed; 
+    bottom: 0;
+    
+    left: 50%;
+    transform: translateX(-50%);
+    
+    max-width: 420px;
+    width: 100%; 
+
+    background: #fff2cc; 
+    padding: 10px 20px; 
+    box-sizing: border-box;
+    z-index: 1000; 
+}
+
+/* 고정된 내 랭킹 아이템 스타일 */
+.my-rank {
+    background: #ffdd77; 
+    border: 3px solid #d2a600; 
+    margin-bottom: 0;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.2);
+}
+
+.my-rank .rank-num {
+    background: #d2a600;
+    color: #fff;
+}
+.my-rank .rank-id, .my-rank .rank-time {
+    color: #000;
+}
+
+/* ========================================================== */
+/* 반응형 */
+/* ========================================================== */
+@media (max-width: 400px) {
+    .container_common {
+        width: 100%;
+        height: 100%; 
+        min-height: 100vh;
+        padding: 20px; 
+    }
+    
+    /* Fixed 영역은 max-width: 420px, width: 100%이므로 400px 이하 모바일 화면에서는 
+       화면 너비를 꽉 채웁니다. 별도 수정 불필요. */
+}

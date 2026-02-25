@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="member.js" defer></script>
+</head>
+<body>
+    <div class="container_common container_auth">
+        <div class="triangle" onclick="window.location.href='main.html'"></div>
+        <div class="logo">회원가입</div>
+        <input id="signup_id" placeholder="아이디 (4~10자)" maxlength="10" />
+        <input id="signup_pw" type="password" placeholder="비밀번호 (4~10자)" maxlength="10" />
+        <input id="signup_pw2" type="password" placeholder="비밀번호 확인" maxlength="10" />
+        <button onclick="signup_submit()">회원가입</button>
+        <div class="link_box">
+            <a href="login.html">로그인</a>
+        </div>
+    </div>
+</body>
+</html>

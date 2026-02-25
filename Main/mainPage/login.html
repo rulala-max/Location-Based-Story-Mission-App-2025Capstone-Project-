@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="member.js" defer></script>
+</head>
+<body>
+    <div class="container_common container_auth">
+        <div class="triangle" onclick="window.location.href='main.html'"></div>
+        <div class="logo">로그인</div>
+        <input id="login_id" placeholder="아이디 (4~10자)" maxlength="10" />
+        <input id="login_pw" type="password" placeholder="비밀번호 (4~10자)" maxlength="10" />
+        <button onclick="login_submit()">로그인</button>
+        <div class="link_box">
+            <a href="signup.html">회원가입</a>
+        </div>
+    </div>
+</body>
+</html>

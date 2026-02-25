@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>KIWU 랭킹</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="member.js" defer></script>
+</head>
+<body>
+    <div class="container_common container_auth">
+        <a href="main.html" class="triangle"></a>
+
+        <h2 class="rank-title">
+            <span style="font-size: 1.5rem; margin-right: 5px;">🏆</span>
+            랭킹
+            <span style="font-size: 1.5rem; margin-left: 5px;">🏆</span>
+        </h2>
+        
+        <div class="rank-list-scroll">
+            <div id="rank_list_container">
+                <div class="rank-item loading">랭킹 정보를 불러오는 중...</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-rank-fixed-container">
+        <div id="my_rank_item" class="rank-item my-rank">
+            <div class="rank-num">99+</div>
+            <div class="rank-profile">
+                <img src="profile.webp" alt="Profile" class="profile-icon">
+            </div>
+            <div class="rank-info">
+                <span class="rank-id">내 ID</span>
+                <span class="rank-time">플레이 타임</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
