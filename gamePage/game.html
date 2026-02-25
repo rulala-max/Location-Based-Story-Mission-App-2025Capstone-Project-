@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>KIWU 캠퍼스투어 - 게임</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="game_style.css">
+</head>
+<body>
+    <div id="game_container" class="container_common container_game" style="background-image: url('image/background1.jpg');">
+
+        <div id="character_area">
+            <img id="character_img" src="image/kiwu1.png" alt="캐릭터 이미지">
+        </div>
+
+        <div id="quiz_area" class="hidden">
+            <p id="quiz_text"></p>
+            <div id="options_container"></div>
+            <input type="text" id="answer_input" placeholder="정답을 입력하세요" class="hidden"> 
+            <button id="submit_answer" class="hidden">확인</button>
+            <p id="feedback_message" class="hidden"></p>
+        </div>
+        
+        <div id="waypoint_section" class="hidden">
+            <canvas id="game_canvas" width="800" height="780" class="hidden"></canvas> 
+            
+            <div id="controls" class="hidden">
+                <button id="up_btn" class="control-button">▲</button>
+                <div class="horizontal-controls">
+                    <button id="left_btn" class="control-button">◀</button>
+                    <button id="center_btn" class="control-button">■</button> <button id="right_btn" class="control-button">▶</button>
+                </div>
+                <button id="down_btn" class="control-button">▼</button>
+            </div>
+            <img id="way_gif" src="" alt="이동 경로 애니메이션">
+            <button id="arrive_button" class="btn_waypoint hidden">도착 확인</button> 
+        </div>
+
+        <div id="dialogue_box">
+            <div id="name_box">
+                <span id="character_name"></span>
+            </div>
+            <p id="dialogue_text"></p>
+        </div>
+    </div>
+
+    <script src="game.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+/* game_style.css */
+
+/* 기본 초기화 */
+html, body {
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Malgun Gothic', 'Dotum', sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+.container_common {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    box-sizing: border-box;
+}
+
+/* 메인 화면 스타일 (main.html) */
+.container_main {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #1a1a2e;
+}
+
+.container_main h1 {
+    font-size: 3em;
+    margin-bottom: 50px;
+}
+
+.red { color: #ff416c; }
+.blue { color: #21d4fd; }
+
+/* 버튼 색상 */
+.btn_box button {
+    display: block;
+    width: 250px;
+    padding: 15px;
+    margin: 15px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000;
+    background-color: #ffc107;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn_box button:hover {
+    background-color: #e0a800;
+}
+
+/* 게임 화면 스타일 (game.html) */
+#game_container {
+    background-size: cover; 
+    background-position: center;
+    position: relative;
+    flex-direction: column; 
+    justify-content: flex-end; 
+    padding-bottom: 5%; 
+}
+
+/* 이동 섹션: 절대 위치 기준점 */
+#waypoint_section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    min-height: 100%; 
+    display: block; 
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 40; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+/* 캔버스 스타일: 중앙 상단 절대 위치 배치 */
+#game_canvas {
+    position: absolute; 
+    top: 20px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    
+    max-width: 90%; 
+    /* 🚩 [수정] PC/기본 최대 높이 px로 다시 키움 */
+    max-height: 550px; 
+    width: auto; 
+    height: auto;
+    
+    border: 5px solid #fff;
+    /* 🚩 [수정] 지도 그림자 색상을 노란색 계열로 (opacity 0.7) */
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.7); 
+    margin: 0; 
+    object-fit: contain;
+}
+
+/* GIF 스타일 */
+#way_gif {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 50%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    object-fit: contain;
+}
+
+/* 도착 확인 버튼 스타일 */
+.btn_waypoint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000;
+    background-color: #ffc107; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.btn_waypoint:hover {
+    background-color: #e0a800;
+}
+
+
+/* 캐릭터 이미지 영역 */
+#character_area {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 80%; 
+    height: 70%; 
+    max-height: 70%; 
+    z-index: 10;
+    transition: opacity 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+}
+#character_img {
+    max-width: 100%;
+    max-height: 100%; 
+    object-fit: contain; 
+    display: block;
+}
+
+/* 대화창 스타일 */
+#dialogue_box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto 20px auto; 
+    max-width: 900px; 
+    width: 90%; 
+    min-height: 20%; 
+    max-height: 25%; 
+    background-color: rgba(0, 0, 0, 0.85); 
+    border: 3px solid #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+    z-index: 20;
+}
+
+/* 이름 상자 색상 */
+#name_box {
+    position: absolute;
+    top: -25px; 
+    left: 10px;
+    background-color: #ffc107; 
+    color: #000; 
+    padding: 3px 12px;
+    border-radius: 5px 5px 0 0;
+    font-weight: bold;
+    font-size: 1.1em;
+    border: 2px solid #fff; 
+    border-bottom: none; 
+}
+
+#dialogue_text {
+    margin: 0;
+    font-size: 1.2em;
+    line-height: 1.5;
+    min-height: 50px; 
+    color: #fff; 
+}
+
+/* 퀴즈/선택지 영역 스타일 */
+#quiz_area {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 450px;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #000;
+    padding: 20px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 30;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#quiz_text {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 선택지 버튼 색상 */
+#options_container button {
+    display: block; 
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 1.1em;
+    cursor: pointer;
+    background-color: #ffc107; 
+    color: #000; 
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+#options_container button:hover {
+    background-color: #e0a800;
+}
+
+#answer_input {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+/* 확인 버튼 색상 */
+#submit_answer {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    background-color: #ffc107; 
+    color: #000; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#feedback_message {
+    margin-top: 15px;
+    font-weight: bold;
+    display: none !important; 
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* 방향키 버튼 영역 스타일 (모든 화면) */
+#controls {
+    position: absolute; 
+    bottom: 50px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    
+    z-index: 110;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 5px; 
+    user-select: none;
+}
+
+#controls.hidden {
+    display: none !important;
+}
+
+/* 좌우 버튼 간격 조정 */
+.horizontal-controls {
+    display: flex;
+    gap: 5px; 
+}
+
+/* 모든 방향 버튼 크기 통일 */
+#controls .control-button {
+    /* 배경은 짙은 회색 유지 */
+    background-color: rgba(50, 50, 50, 0.85); 
+    color: #fff;
+    border: 2px solid #aaa;
+    border-radius: 50%; 
+    padding: 0;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    width: 50px; 
+    height: 50px;
+    line-height: 46px; 
+    text-align: center;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#controls .control-button:active {
+    transform: scale(0.95);
+}
+
+#controls .control-button:hover {
+    /* 🚩 [수정] 노란 계열로 변경 */
+    background-color: #e0a800; 
+}
+
+/* 중앙 버튼 크기 통일 */
+#center_btn {
+    /* 배경은 회색 유지 */
+    background-color: rgba(100, 100, 100, 0.7);
+    font-size: 16px;
+    width: 50px; 
+    height: 50px;
+    line-height: 46px; 
+}
+
+
+/* 모바일 (작은 화면) 스타일: 캔버스 크기만 조정 */
+@media (max-width: 600px) {
+    #game_canvas {
+        top: 20px;
+        /* 🚩 [수정] 모바일에서 겹침 방지: 하단 영역 공간을 줄여 지도 공간을 다시 키움 */
+        max-height: calc(100vh - 280px); 
+    }
+}
